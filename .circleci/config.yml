@@ -35,4 +35,9 @@ jobs:
         
       # run build!
       - run: yarn build
-      
+
+   deployment:
+    production:
+      branch: master
+      commands:
+        - firebase deploy --token=1/gowFL8C7ISCAxzjg5A9QBHUqoGhw0v2lAhGBXEUQLpc --non-interactive
