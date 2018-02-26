@@ -33,7 +33,10 @@ class App extends Component {
           {/* Add more saraly */}
           <button onClick={()=>this.props.ADD(1000)}>เพิ่มเงินเดือนให้ 1000</button>
         </p>
-        <footer>&copy; Created by Apinan Woratrakun</footer>
+        <footer>
+          &copy; Created by Apinan Woratrakun
+          <p>Repository at: <a href="https://bitbucket.org/iotechdev/easy-redux">https://bitbucket.org/iotechdev/easy-redux</a></p>
+        </footer>
       </div>
     );
   }
