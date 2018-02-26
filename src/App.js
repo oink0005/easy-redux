@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import User from './User';
 import './App.css';
 class App extends Component {
-  constructor (props) {
-    super(props);
-  }
 
   ChangeUser = () => {
     this.props.RESET(15000);
