@@ -36,12 +36,24 @@ jobs:
       # run build!
       - run: yarn build
       # - run: yarn global add firebase-tools
+  deploy:
+    docker:
+      - image: my-image
+    working_directory: /tmp/my-project  
+    steps:
       - run:
-          name: Deploy
-          command: firebase deploy --token=1/gowFL8C7ISCAxzjg5A9QBHUqoGhw0v2lAhGBXEUQLpc --non-interactive
-
-  #  deployment:
-  #   production:
-  #     branch: master
-  #     commands:
-  #       - firebase deploy --token=1/gowFL8C7ISCAxzjg5A9QBHUqoGhw0v2lAhGBXEUQLpc --non-interactive
+          name: Deploy Master to Firebase
+          command: ./node_modules/.bin/firebase deploy --token=1/gowFL8C7ISCAxzjg5A9QBHUqoGhw0v2lAhGBXEUQLpc
+          
+workflows:
+  version: 2
+  
+  -deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
