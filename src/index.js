@@ -1,20 +1,19 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux';
 
+// Initial state and set default value.
 const initialState = {
     saraly: 15000,
     value: []
 }
 
-const userReducer = (state = {name:"Apinan", age: 20}, action) => {
+// Reducer for user
+const userReducer = (state = {name:"React", age: 20}, action) => {
     switch (action.type) {
         case "SetName":
                 state = {
@@ -34,6 +33,7 @@ const userReducer = (state = {name:"Apinan", age: 20}, action) => {
     return state;
 }
 
+// Reducer for employee
 const employeeReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD":
@@ -50,27 +50,42 @@ const employeeReducer = (state = initialState, action) => {
                     value: [...state.value, action.payload]
                 };
             break;
+        case "RESET":
+                state = {
+                    ...state,
+                    saraly: action.payload,
+                    value: [...state.value, action.payload]
+                };
+            break;
         default:
             break;
     }
     return state;
 }
+// Create store and assign key for reducer function
+const store = createStore(combineReducers({emp: employeeReducer, user: userReducer}));
 
+ReactDOM.render(
+    // Add Provider and define store prop as store object
+    <Provider store={store}>
+        <App />
+    </Provider>
+, document.getElementById('root')
+);
+registerServiceWorker();
 
-const store = createStore(combineReducers({employeeReducer, userReducer}));
+// // Subscribe is get the state value.
+// store.subscribe(() => {
+//     console.log("Update Store: ", store.getState());
+// });
 
-// Subscribe is get the state value.
-store.subscribe(() => {
-    console.log("Update Store: ", store.getState());
-});
+// // Dispatch is update the state value.
+// store.dispatch({
+//     type: "ADD",
+//     payload: 15000
+// });
 
-// Dispatch is update the state value.
-store.dispatch({
-    type: "ADD",
-    payload: 15000
-});
-
-store.dispatch({
-    type: "SetName",
-    payload: "Apinu"
-});
+// store.dispatch({
+//     type: "SetName",
+//     payload: "Apinu"
+// });
