@@ -13,7 +13,7 @@ const initialState = {
 }
 
 // Reducer for user
-const userReducer = (state = {name:"React", age: 20}, action) => {
+const userReducer = (state = {name:"Apinan", age: 20}, action) => {
     switch (action.type) {
         case "SetName":
                 state = {

@@ -8,10 +8,10 @@ class App extends Component {
 
   ChangeUser = () => {
     this.props.RESET(15000);
-    if(this.props.user.name === 'React') {
-      this.props.SetName("REDUX");
+    if(this.props.user.name === 'Apinan') {
+      this.props.SetName("Iam Apinan");
     } else {
-      this.props.SetName("React");
+      this.props.SetName("Apinan");
     }
   }
   
@@ -22,17 +22,16 @@ class App extends Component {
         {/* Display child component with property username */}
         <div className="App-header">
           <User username = {this.props.user.name}/>
-          <p>เงินเดือน: {this.props.emp.saraly}</p>
+          <p>Current value: {this.props.emp.saraly}</p>
         </div>
         {/* Add action to update property */}
         <p>
-          <button onClick={ this.ChangeUser }>เปลี่ยนชื่อ</button>
+          <button onClick={ this.ChangeUser }>Change name</button>
           {/* Add more saraly */}
-          <button onClick={()=>this.props.ADD(1000)}>เพิ่มเงินเดือนให้ 1000</button>
+          <button onClick={()=>this.props.ADD(1000)}>Add 1000</button>
         </p>
         <footer>
-          &copy; Created by Apinan Woratrakun
-          <p>Repository at: <a href="https://bitbucket.org/iotechdev/easy-redux">https://bitbucket.org/iotechdev/easy-redux</a></p>
+          <p>Created by <a href="https://www.youtube.com/channel/UCfBTtP6_vgluRow9iMi-sfg">Apinan Woratrakun</a></p>
         </footer>
       </div>
     );
