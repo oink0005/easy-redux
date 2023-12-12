@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 // Initial state and set default value.
 const initialState = {
-    saraly: 15000,
+    saraly: 100000,
     value: []
 }
 

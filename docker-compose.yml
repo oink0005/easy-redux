@@ -4,6 +4,6 @@ services:
   main:
     build: ./
     volumes:
-      - ./:/app
+      - ./src:/app/src
     ports:
       - 8000:3000
