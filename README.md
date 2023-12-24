@@ -8,3 +8,4 @@ https://example-redux.firebaseapp.com/
 ![Demo2](./src/images/redux-reducer-example.png)
 ![Demo3](./src/images/redux-get-value.png)
 ![Demo4](./src/images/redux-change-value.png)
+:)
