@@ -16,7 +16,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "firebase-tools": "^11.14.0"
+    "firebase-tools": "^12.4.5"
   },
   "browserslist": {
     "production": [
