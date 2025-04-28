@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  main:
+    build: ./
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 8000:3000
